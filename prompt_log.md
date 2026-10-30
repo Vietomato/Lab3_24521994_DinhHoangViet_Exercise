@@ -23,3 +23,15 @@ làm task4 tạo các components card.jsx trong src, define fullname và role, c
 
 ### Trợ lý
 Đã triển khai Task 04 bằng component `src/components/DeveloperCard.jsx`, dùng `fullName` và `role` với giá trị mặc định, cấu trúc HTML ngữ nghĩa và `useId` để liên kết `aria-labelledby`. `App.jsx` hiển thị component với dữ liệu mẫu.
+
+### Người dùng
+Xử lý avatar bị thiếu hoặc tải lỗi bằng chữ viết tắt lấy từ fullName, hoặc bạn lấy 1 ảnh bất kì bạn thích để thử. Khi avatarUrl thay đổi, phải thử tải URL mới. Hướng dẫn tôi kiểm tra URL đúng, URL lỗi và URL trống. Ghi prompt_log. Chưa thêm metrics.
+
+### Trợ lý
+Đã thêm fallback chữ viết tắt lấy từ `fullName` khi `avatarUrl` trống hoặc ảnh tải lỗi. Fallback có mô tả truy cập được; khi URL thay đổi, component hiển thị và tải ảnh mới. Chưa thêm metrics. Kiểm tra bằng `https://github.com/Vietomato.png` cho URL hợp lệ, `https://httpstat.us/404` cho URL lỗi, và `avatarUrl=""` cho URL trống.
+
+### Người dùng
+Chỉ làm Task 07: thêm prop metrics, duyệt bằng Object.entries, hiển thị bằng dl/dt/dd và Fragment có key. Không dùng div và không dùng index làm key. Ghi prompt_log. Chưa làm skills.
+
+### Trợ lý
+Đã thêm prop `metrics` với mặc định `{}`, duyệt bằng `Object.entries` và render từng cặp `dt`/`dd` trong `Fragment` có key theo tên metric. Đã thêm dữ liệu metrics mẫu vào `App.jsx` để kiểm tra. Không thêm skills.
