@@ -1,0 +1,67 @@
+.manualCard {
+  max-width: 42rem;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  color: #263238;
+  background: #efcccc;
+  border: 1px solid #d7e0e5;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 1rem rgb(38 50 56 / 8%);
+}
+
+.manualHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #d7e0e5;
+}
+
+.manualAvatar {
+  box-sizing: border-box;
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+  border: 1px solid #d7e0e5;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.manualName {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.manualRole {
+  margin: 0.25rem 0 0;
+  color: #607d8b;
+}
+
+.manualMetrics {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 0.375rem 1rem;
+  margin: 1rem 0;
+}
+
+.manualMetrics dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.manualSkills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  padding: 0;
+  list-style: none;
+}
+
+.manualSkills li {
+  padding: 0.375rem 0.625rem;
+  color: #17324d;
+  background: #97bce1;
+  border: 1px solid #b8d5f0;
+  border-radius: 999px;
+}
