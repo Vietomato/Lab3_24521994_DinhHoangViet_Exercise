@@ -17,6 +17,8 @@ function App() {
           { id: 'react', name: 'React', tier: 'Advanced' },
           { id: 'javascript', name: 'JavaScript', tier: 'Advanced' },
           { id: 'css', name: 'CSS', tier: 'Intermediate' },
+          { id: 'nodejs', name: 'Node.js', tier: 'Intermediate' },
+          { id: 'expressjs', name: 'Express.js', tier: 'Intermediate' },
         ]}
       />
 
