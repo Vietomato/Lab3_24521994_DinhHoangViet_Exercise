@@ -35,3 +35,9 @@ Chỉ làm Task 07: thêm prop metrics, duyệt bằng Object.entries, hiển th
 
 ### Trợ lý
 Đã thêm prop `metrics` với mặc định `{}`, duyệt bằng `Object.entries` và render từng cặp `dt`/`dd` trong `Fragment` có key theo tên metric. Đã thêm dữ liệu metrics mẫu vào `App.jsx` để kiểm tra. Không thêm skills.
+
+### Người dùng
+Task 08: tạo SkillBadge nhận name và tier với giá trị mặc định. Chuẩn bị CSS Module riêng, chưa thiết kế chi tiết. Kiểm tra component hiển thị được. Ghi prompt_log. Chưa tích hợp toàn bộ danh sách skills.
+
+### Trợ lý
+Đã tạo `SkillBadge.jsx` nhận `name` và `tier` có giá trị mặc định, kèm CSS Module riêng ở mức cơ bản. Component được kiểm tra độc lập; chưa tích hợp danh sách skills vào `DeveloperCard`.
