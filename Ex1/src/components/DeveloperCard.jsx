@@ -2,7 +2,7 @@ import { Fragment, useId, useState } from 'react'
 import SkillBadge from './SkillBadge.jsx'
 import styles from './DeveloperCard.module.css'
 
-function ProfileAvatar({ fullName, avatarUrl }) {
+function ProfileAvatar({ fullName, avatarUrl, avatarAlt }) {
   const [hasFailed, setHasFailed] = useState(false)
   const initials =
     fullName
@@ -31,7 +31,7 @@ function ProfileAvatar({ fullName, avatarUrl }) {
       src={avatarUrl}
       width="64"
       height="64"
-      alt={`Portrait of ${fullName}`}
+      alt={avatarAlt}
       onError={() => setHasFailed(true)}
     />
   )
@@ -41,6 +41,7 @@ function DeveloperCard({
   fullName = 'Developer Name',
   role = 'Software Developer',
   avatarUrl = 'https://github.com/Vietomato.png',
+  avatarAlt = `Avatar for ${fullName}`,
   metrics = {},
   skills = [],
 }) {
@@ -53,6 +54,7 @@ function DeveloperCard({
           key={avatarUrl}
           fullName={fullName}
           avatarUrl={avatarUrl}
+          avatarAlt={avatarAlt}
         />
         <hgroup className={styles.identity}>
           <h2 className={styles.name} id={headingId}>{fullName}</h2>

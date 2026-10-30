@@ -1,3 +1,4 @@
+import cristianoRonaldoAvatar from './assets/cristiano-ronaldo.png'
 import DeveloperCard from './components/DeveloperCard.jsx'
 
 function App() {
@@ -5,8 +6,10 @@ function App() {
     <main>
       <h1>Developer Profile</h1>
       <DeveloperCard
-        fullName="Đinh Hoàng Việt"
-        role="Lập trình viên"
+        fullName="Cristiano Ronaldo - con trai Đinh Hoàng Việt"
+        role="Footballer + Developer"
+        avatarUrl={cristianoRonaldoAvatar}
+        avatarAlt="Cristiano Ronaldo celebrating with the Champions League trophy"
         metrics={{ Projects: 12, Experience: '3 years' }}
         skills={[
           { id: 'react', name: 'React', tier: 'Advanced' },

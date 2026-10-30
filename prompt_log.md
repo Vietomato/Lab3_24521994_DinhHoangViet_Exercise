@@ -65,3 +65,15 @@ Chỉ làm Task 12: điều chỉnh responsive ở 375px và desktop. Kiểm tra
 
 ### Trợ lý
 Đã thêm padding co giãn cho trang và quy tắc màn hình hẹp cho card/header/metrics. Nhãn metric dài được phép ngắt dòng ở desktop; không dùng `overflow-x: hidden`. AI đã kiểm tra trình duyệt ở viewport đặt 375px và 1440px với tên, vai trò, nhãn/giá trị metrics và skill dài không có dấu cách; cả hai kích thước đều không có phần tử tràn ngang và `document.scrollWidth` không vượt viewport. Build và lint cũng đạt. Người dùng nên kiểm tra lại trên thiết bị/trình duyệt thực tế và thử nội dung thật ở 375px cùng desktop.
+
+### Người dùng
+Lấy ảnh CR7 thay vào avatar.
+
+### Trợ lý
+Đã dùng ảnh CR7 người dùng cung cấp làm avatar local trong dự án; build và lint đạt.
+
+### Người dùng
+Thay tên là Cristiano Ronaldo - con trai Đinh Hoàng Việt, role là footballer + developer.
+
+### Trợ lý
+Đã cập nhật tên thành `Cristiano Ronaldo - con trai Đinh Hoàng Việt` và role thành `Footballer + Developer`, giữ nguyên ảnh CR7.
