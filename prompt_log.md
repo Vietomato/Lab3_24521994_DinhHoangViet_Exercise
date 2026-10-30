@@ -17,3 +17,9 @@ tạo thêm 1 file prompt_log, ghi lại cuộc trò chuyện của tôi vs bạ
 
 ### Trợ lý
 Mình sẽ tạo `prompt_log.md` trong thư mục dự án, ghi lại các lượt trao đổi đến hiện tại theo thứ tự.
+
+### Người dùng
+làm task4 tạo các components card.jsx trong src, define fullname và role, có artical, header, hgroup, h2,p, và trình bày developercard trong app.jsx,...
+
+### Trợ lý
+Đã triển khai Task 04 bằng component `src/components/DeveloperCard.jsx`, dùng `fullName` và `role` với giá trị mặc định, cấu trúc HTML ngữ nghĩa và `useId` để liên kết `aria-labelledby`. `App.jsx` hiển thị component với dữ liệu mẫu.
