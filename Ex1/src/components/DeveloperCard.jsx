@@ -1,4 +1,6 @@
 import { Fragment, useId, useState } from 'react'
+import SkillBadge from './SkillBadge.jsx'
+import styles from './DeveloperCard.module.css'
 
 function ProfileAvatar({ fullName, avatarUrl }) {
   const [hasFailed, setHasFailed] = useState(false)
@@ -13,7 +15,11 @@ function ProfileAvatar({ fullName, avatarUrl }) {
 
   if (!avatarUrl || hasFailed) {
     return (
-      <span role="img" aria-label={`${initials} initials for ${fullName}`}>
+      <span
+        className={styles.avatar}
+        role="img"
+        aria-label={`${initials} initials for ${fullName}`}
+      >
         {initials}
       </span>
     )
@@ -21,6 +27,7 @@ function ProfileAvatar({ fullName, avatarUrl }) {
 
   return (
     <img
+      className={styles.avatar}
       src={avatarUrl}
       width="64"
       height="64"
@@ -35,30 +42,45 @@ function DeveloperCard({
   role = 'Software Developer',
   avatarUrl = 'https://github.com/Vietomato.png',
   metrics = {},
+  skills = [],
 }) {
   const headingId = useId()
 
   return (
-    <article aria-labelledby={headingId}>
-      <header>
+    <article className={styles.card} aria-labelledby={headingId}>
+      <header className={styles.header}>
         <ProfileAvatar
           key={avatarUrl}
           fullName={fullName}
           avatarUrl={avatarUrl}
         />
-        <hgroup>
-          <h2 id={headingId}>{fullName}</h2>
-          <p>{role}</p>
+        <hgroup className={styles.identity}>
+          <h2 className={styles.name} id={headingId}>{fullName}</h2>
+          <p className={styles.role}>{role}</p>
         </hgroup>
       </header>
-      <dl>
+      <dl className={styles.metrics}>
         {Object.entries(metrics).map(([label, value]) => (
           <Fragment key={label}>
-            <dt>{label}</dt>
-            <dd>{value}</dd>
+            <dt className={styles.metricLabel}>{label}</dt>
+            <dd className={styles.metricValue}>{value}</dd>
           </Fragment>
         ))}
       </dl>
+      <section aria-label="Skills">
+        <h3>Skills</h3>
+        {skills.length > 0 ? (
+          <ul className={styles.skillsList}>
+            {skills.map((skill) => (
+              <li className={styles.skillItem} key={skill.id}>
+                <SkillBadge name={skill.name} tier={skill.tier} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No skills listed yet.</p>
+        )}
+      </section>
     </article>
   )
 }

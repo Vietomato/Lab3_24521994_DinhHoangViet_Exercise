@@ -1,0 +1,93 @@
+.card {
+  --card-color-text: #263238;
+  --card-color-muted: #607d8b;
+  --card-color-surface: #ffffff;
+  --card-color-border: #d7e0e5;
+  --card-color-accent: #1565c0;
+  --card-color-avatar: #e3f2fd;
+  --card-space-card: 1.5rem;
+  --card-space-header: 1rem;
+  --card-space-metrics: 1rem;
+  --card-radius: 0.75rem;
+  --avatar-radius: 50%;
+
+  box-sizing: border-box;
+  width: min(100%, 42rem);
+  padding: var(--card-space-card);
+  color: var(--card-color-text);
+  background: var(--card-color-surface);
+  border: 1px solid var(--card-color-border);
+  border-radius: var(--card-radius);
+  box-shadow: 0 0.25rem 1rem rgb(38 50 56 / 8%);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--card-space-header);
+}
+
+.avatar {
+  box-sizing: border-box;
+  display: grid;
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  overflow: hidden;
+  color: var(--card-color-accent);
+  background: var(--card-color-avatar);
+  border: 1px solid var(--card-color-border);
+  border-radius: var(--avatar-radius);
+  object-fit: cover;
+}
+
+.identity {
+  min-width: 0;
+}
+
+.name {
+  margin: 0;
+  color: var(--card-color-text);
+  overflow-wrap: anywhere;
+}
+
+.role {
+  margin: 0.25rem 0 0;
+  color: var(--card-color-muted);
+  overflow-wrap: anywhere;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0.375rem var(--card-space-metrics);
+  margin: var(--card-space-card) 0 0;
+  padding-top: var(--card-space-metrics);
+  border-top: 1px solid var(--card-color-border);
+}
+
+.metricLabel {
+  color: var(--card-color-muted);
+}
+
+.metricValue {
+  min-width: 0;
+  margin: 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skillItem {
+  min-width: 0;
+  max-width: 100%;
+}

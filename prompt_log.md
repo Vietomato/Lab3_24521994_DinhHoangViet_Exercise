@@ -41,3 +41,21 @@ Task 08: tạo SkillBadge nhận name và tier với giá trị mặc định. C
 
 ### Trợ lý
 Đã tạo `SkillBadge.jsx` nhận `name` và `tier` có giá trị mặc định, kèm CSS Module riêng ở mức cơ bản. Component được kiểm tra độc lập; chưa tích hợp danh sách skills vào `DeveloperCard`.
+
+### Người dùng
+Thêm skills vào DeveloperCard, render ul/li và SkillBadge với key là skill.id. Truyền dữ liệu Đinh Hoàng Việt từ App. Xử lý danh sách skills rỗng. Ghi prompt_log. Chưa thiết kế CSS.
+
+### Trợ lý
+Đã thêm prop `skills` mặc định là mảng rỗng; danh sách được render bằng `ul`/`li`, mỗi mục dùng `SkillBadge` và `skill.id` làm key. Khi danh sách rỗng, card hiển thị thông báo phù hợp. `App.jsx` truyền profile Đinh Hoàng Việt cùng dữ liệu skills mẫu. Không chỉnh thiết kế CSS.
+
+### Người dùng
+Chỉ làm Task 10: thiết kế DeveloperCard bằng CSS Modules và CSS Custom Properties. Style card, header, avatar, initials và metrics. Avatar và fallback cùng kích thước. Không inline style. Ghi prompt_log. Chưa làm phần responsive riêng.
+
+### Trợ lý
+Đã tạo `DeveloperCard.module.css` với CSS Custom Properties và style cho card, header, avatar/fallback và metrics. Ảnh và chữ viết tắt dùng chung class 64×64; không thêm inline style hoặc media query responsive.
+
+### Người dùng
+Chỉ làm Task 11: thiết kế SkillBadge bằng CSS Module riêng, bố trí danh sách có gap và xuống dòng. Tên kỹ năng dài không được tràn. Ghi prompt_log. Chưa làm Task 12.
+
+### Trợ lý
+Đã thiết kế badge bằng CSS Module riêng với màu chữ dễ đọc, nền, viền và khoảng đệm. Danh sách skills dùng flex-wrap và gap; badge cho phép tên dài ngắt dòng. Không thêm media query hoặc thực hiện Task 12.
