@@ -21,7 +21,7 @@ body {
 main {
   width: min(100%, 1126px);
   margin-inline: auto;
-  padding: 2rem;
+  padding: clamp(1rem, 5vw, 2rem);
 }
 
 h1 {

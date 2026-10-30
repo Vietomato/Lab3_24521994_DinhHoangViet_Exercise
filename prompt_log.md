@@ -59,3 +59,9 @@ Chỉ làm Task 11: thiết kế SkillBadge bằng CSS Module riêng, bố trí 
 
 ### Trợ lý
 Đã thiết kế badge bằng CSS Module riêng với màu chữ dễ đọc, nền, viền và khoảng đệm. Danh sách skills dùng flex-wrap và gap; badge cho phép tên dài ngắt dòng. Không thêm media query hoặc thực hiện Task 12.
+
+### Người dùng
+Chỉ làm Task 12: điều chỉnh responsive ở 375px và desktop. Kiểm tra tên dài, vai trò dài, metrics và skills. Sửa nguyên nhân tràn, không dùng overflow-x: hidden để che lỗi. Nêu rõ những kiểm tra nào AI đã thực hiện và những kiểm tra nào tôi cần làm. Ghi prompt_log.
+
+### Trợ lý
+Đã thêm padding co giãn cho trang và quy tắc màn hình hẹp cho card/header/metrics. Nhãn metric dài được phép ngắt dòng ở desktop; không dùng `overflow-x: hidden`. AI đã kiểm tra trình duyệt ở viewport đặt 375px và 1440px với tên, vai trò, nhãn/giá trị metrics và skill dài không có dấu cách; cả hai kích thước đều không có phần tử tràn ngang và `document.scrollWidth` không vượt viewport. Build và lint cũng đạt. Người dùng nên kiểm tra lại trên thiết bị/trình duyệt thực tế và thử nội dung thật ở 375px cùng desktop.

@@ -60,7 +60,7 @@
 
 .metrics {
   display: grid;
-  grid-template-columns: max-content minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   gap: 0.375rem var(--card-space-metrics);
   margin: var(--card-space-card) 0 0;
   padding-top: var(--card-space-metrics);
@@ -68,7 +68,9 @@
 }
 
 .metricLabel {
+  min-width: 0;
   color: var(--card-color-muted);
+  overflow-wrap: anywhere;
 }
 
 .metricValue {
@@ -90,4 +92,25 @@
 .skillItem {
   min-width: 0;
   max-width: 100%;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1rem;
+  }
+
+  .header {
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .metrics {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .metricLabel,
+  .metricValue {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
 }
