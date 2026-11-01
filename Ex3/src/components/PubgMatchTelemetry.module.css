@@ -12,3 +12,28 @@
 .telemetry p + p {
   margin-top: 0.5rem;
 }
+
+.match h3 {
+  margin: 1rem 0;
+  color: var(--text-h);
+}
+
+.statistics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  gap: 0.75rem 1rem;
+  margin: 0;
+}
+
+.statistics dt {
+  font-weight: 600;
+}
+
+.statistics dd {
+  margin: 0.125rem 0 0;
+  overflow-wrap: anywhere;
+}
+
+.disclaimer {
+  margin-top: 1rem;
+}
