@@ -50,6 +50,13 @@ function ScientistDirectory({ initialData = SMART_PEOPLE }) {
     )
   }
 
+  function handleReset() {
+    setPeople(initialData)
+    setQuery('')
+    setMinIq(160)
+    setSortBy('iq-desc')
+  }
+
   return (
     <section aria-labelledby="scientists-heading">
       <h2 id="scientists-heading">Scientists</h2>
@@ -80,9 +87,17 @@ function ScientistDirectory({ initialData = SMART_PEOPLE }) {
         <option value="iq-desc">IQ (highest first)</option>
         <option value="age-asc">Age (youngest first)</option>
       </select>
-      <button ref={resetButtonRef} type="button">
+      <button ref={resetButtonRef} type="button" onClick={handleReset}>
         Reset
       </button>
+      <output role="status" aria-live="polite">
+        {visiblePeople.length} {visiblePeople.length === 1 ? 'result' : 'results'}
+      </output>
+      {people.length === 0 ? (
+        <p>All scientists have been deleted.</p>
+      ) : visiblePeople.length === 0 ? (
+        <p>No scientists match the current filters.</p>
+      ) : null}
       <ScientistList
         people={visiblePeople}
         onDelete={handleDelete}
