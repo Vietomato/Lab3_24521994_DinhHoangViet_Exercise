@@ -1,0 +1,164 @@
+.directory {
+  --color-text: #1f2937;
+  --color-muted: #4b5563;
+  --color-border: #cbd5e1;
+  --color-surface: #f8fafc;
+  --color-accent: #1d4ed8;
+  --color-accent-hover: #1e40af;
+  --color-danger: #b91c1c;
+
+  min-width: 0;
+  color: var(--color-text);
+}
+
+.sectionHeading {
+  margin: 0 0 1.25rem;
+  color: var(--color-text);
+  font-size: 1.5rem;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  align-items: end;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.field {
+  display: grid;
+  min-width: 0;
+  gap: 0.4rem;
+}
+
+.field label {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+.field input,
+.field select,
+.resetButton,
+.deleteButton {
+  box-sizing: border-box;
+  min-height: 2.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  font: inherit;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.55rem 0.7rem;
+  color: var(--color-text);
+  background-color: #fff;
+}
+
+.resetButton,
+.deleteButton {
+  padding: 0.55rem 1rem;
+  color: #fff;
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.resetButton:hover,
+.deleteButton:hover {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.resetButton:focus-visible,
+.deleteButton:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+.resultCount {
+  display: block;
+  margin: 0 0 0.75rem;
+  color: var(--color-muted);
+  font-weight: 650;
+}
+
+.emptyMessage {
+  margin: 0 0 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.peopleList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.person {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.65rem;
+  background: var(--color-surface);
+}
+
+.personName {
+  margin: 0 0 0.75rem;
+  color: var(--color-text);
+  font-size: 1.15rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.personDetail {
+  margin: 0.25rem 0;
+  color: var(--color-muted);
+}
+
+.deleteButton {
+  margin-top: 0.75rem;
+  background-color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.deleteButton:hover {
+  background-color: #991b1b;
+  border-color: #991b1b;
+}
+
+@media (max-width: 700px) {
+  .controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
+  .resetButton {
+    align-self: end;
+  }
+
+  .peopleList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .controls {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .resetButton {
+    width: 100%;
+  }
+}

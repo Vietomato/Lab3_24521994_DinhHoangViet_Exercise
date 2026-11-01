@@ -1,5 +1,6 @@
 import { useId, useLayoutEffect, useRef, useState } from 'react'
 import { SMART_PEOPLE } from '../data/smartPeople.js'
+import styles from './ScientistDirectory.module.css'
 import ScientistList from './ScientistList.jsx'
 
 function ScientistDirectory({ initialData = SMART_PEOPLE }) {
@@ -58,45 +59,63 @@ function ScientistDirectory({ initialData = SMART_PEOPLE }) {
   }
 
   return (
-    <section aria-labelledby="scientists-heading">
-      <h2 id="scientists-heading">Scientists</h2>
-      <label htmlFor={searchId}>Search by name</label>
-      <input
-        id={searchId}
-        type="search"
-        value={query}
-        onChange={(event) => setQuery(event.target.value)}
-      />
-      <label htmlFor={minIqId}>Minimum IQ</label>
-      <input
-        id={minIqId}
-        type="number"
-        min="0"
-        value={minIq}
-        onChange={(event) => {
-          const value = event.target.valueAsNumber
-          setMinIq(Number.isNaN(value) ? 0 : value)
-        }}
-      />
-      <label htmlFor={sortById}>Sort by</label>
-      <select
-        id={sortById}
-        value={sortBy}
-        onChange={(event) => setSortBy(event.target.value)}
-      >
-        <option value="iq-desc">IQ (highest first)</option>
-        <option value="age-asc">Age (youngest first)</option>
-      </select>
-      <button ref={resetButtonRef} type="button" onClick={handleReset}>
-        Reset
-      </button>
-      <output role="status" aria-live="polite">
-        {visiblePeople.length} {visiblePeople.length === 1 ? 'result' : 'results'}
+    <section className={styles.directory} aria-labelledby="scientists-heading">
+      <h2 className={styles.sectionHeading} id="scientists-heading">
+        Scientists
+      </h2>
+      <div className={styles.controls}>
+        <div className={styles.field}>
+          <label htmlFor={searchId}>Search by name</label>
+          <input
+            id={searchId}
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+          />
+        </div>
+        <div className={styles.field}>
+          <label htmlFor={minIqId}>Minimum IQ</label>
+          <input
+            id={minIqId}
+            type="number"
+            min="0"
+            value={minIq}
+            onChange={(event) => {
+              const value = event.target.valueAsNumber
+              setMinIq(Number.isNaN(value) ? 0 : value)
+            }}
+          />
+        </div>
+        <div className={styles.field}>
+          <label htmlFor={sortById}>Sort by</label>
+          <select
+            id={sortById}
+            value={sortBy}
+            onChange={(event) => setSortBy(event.target.value)}
+          >
+            <option value="iq-desc">IQ (highest first)</option>
+            <option value="age-asc">Age (youngest first)</option>
+          </select>
+        </div>
+        <button
+          className={styles.resetButton}
+          ref={resetButtonRef}
+          type="button"
+          onClick={handleReset}
+        >
+          Reset
+        </button>
+      </div>
+      <output className={styles.resultCount} role="status" aria-live="polite">
+        {visiblePeople.length}{' '}
+        {visiblePeople.length === 1 ? 'result' : 'results'}
       </output>
       {people.length === 0 ? (
-        <p>All scientists have been deleted.</p>
+        <p className={styles.emptyMessage}>All scientists have been deleted.</p>
       ) : visiblePeople.length === 0 ? (
-        <p>No scientists match the current filters.</p>
+        <p className={styles.emptyMessage}>
+          No scientists match the current filters.
+        </p>
       ) : null}
       <ScientistList
         people={visiblePeople}
