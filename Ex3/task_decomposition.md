@@ -15,8 +15,8 @@ Do not mark pending browser checks as passed.
 | [x] 07 | Fetch state machine | IDLE/LOADING/SUCCESS/ERROR with cleanup | feat(ex3): implement telemetry state machine |
 | [x] 08 | Success view | Correct squad and semantic statistics | feat(ex3): render squad telemetry details |
 | [x] 09 | Loading skeleton | Accessible reserved 220px card area | feat(ex3): add accessible loading skeleton |
-| 10 | Error and Retry | Inline error; retry restarts request | feat(ex3): add error recovery and retry |
-| 11 | Responsive CSS | 375px layout, focus and reduced motion | style(ex3): add responsive telemetry layout |
+| [x] 10 | Error and Retry | Inline error; retry restarts request | feat(ex3): add error recovery and retry |
+| [x] 11 | Responsive CSS | 375px layout, focus and reduced motion | style(ex3): add responsive telemetry layout |
 | 12 | Verification and audit | Actual checks, race/abort evidence and honest audit | test(ex3): verify cancellation and document AI failures |
 | 13 | Submission documents | README, report, evidence and final checks | docs(ex3): complete report and submission evidence |
 

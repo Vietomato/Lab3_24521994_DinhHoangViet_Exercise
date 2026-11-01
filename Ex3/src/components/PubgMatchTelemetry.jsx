@@ -10,13 +10,25 @@ function PubgMatchTelemetry({ squadId }) {
     squadId: null,
     retryTick: null,
   })
-  const [retryTick] = useState(0)
+  const [retryTick, setRetryTick] = useState(0)
 
   useEffect(() => {
     const controller = new AbortController()
     let active = true
+    const failureRateOverride = import.meta.env.DEV
+      ? globalThis.__PUBG_TELEMETRY_FAILURE_RATE__
+      : undefined
+    const requestOptions = { signal: controller.signal }
 
-    fetchKraftonPubgTelemetry(squadId, { signal: controller.signal })
+    if (
+      Number.isFinite(failureRateOverride) &&
+      failureRateOverride >= 0 &&
+      failureRateOverride <= 1
+    ) {
+      requestOptions.failureRate = failureRateOverride
+    }
+
+    fetchKraftonPubgTelemetry(squadId, requestOptions)
       .then((data) => {
         if (active && !controller.signal.aborted) {
           setView({
@@ -121,7 +133,17 @@ function PubgMatchTelemetry({ squadId }) {
           </article>
         )}
         {status === 'ERROR' && isCurrentRequest && (
-          <p>Error: {view.error.message}</p>
+          <section className={styles.error} role="alert">
+            <h3>Telemetry connection failed</h3>
+            <p>{view.error.message}</p>
+            <button
+              className={styles.retryButton}
+              type="button"
+              onClick={() => setRetryTick((current) => current + 1)}
+            >
+              Reconnect Satellite
+            </button>
+          </section>
         )}
       </div>
     </section>
