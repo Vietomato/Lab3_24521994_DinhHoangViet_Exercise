@@ -62,7 +62,7 @@ chore(ex2): scaffold React directory app
 
 ---
 
-## [ ] Task 02 — Define Rules and Workflow Documents
+## [x] Task 02 — Define Rules and Workflow Documents
 
 Actions:
 - Add project_rules.md.
@@ -81,7 +81,7 @@ docs(ex2): define project rules and task decomposition
 
 ---
 
-## [ ] Task 03 — Create the Scientist Dataset
+## [x] Task 03 — Create the Scientist Dataset
 
 Actions:
 - Create src/data/smartPeople.js.
@@ -101,7 +101,7 @@ feat(ex2): add scientist dataset with stable IDs
 
 ---
 
-## [ ] Task 04 — Render the Semantic Directory
+## [x] Task 04 — Render the Semantic Directory
 
 Actions:
 - Create ScientistDirectory.jsx.
@@ -123,7 +123,7 @@ feat(ex2): render semantic scientist directory
 
 ---
 
-## [ ] Task 05 — Implement Name Search
+## [x] Task 05 — Implement Name Search
 
 Actions:
 - Add query state with default ''.
@@ -144,7 +144,7 @@ feat(ex2): implement controlled name search
 
 ---
 
-## [ ] Task 06 — Implement the Minimum IQ Filter
+## [x] Task 06 — Implement the Minimum IQ Filter
 
 Actions:
 - Add minIq state with default 160.
@@ -165,7 +165,7 @@ feat(ex2): add numeric minimum IQ filter
 
 ---
 
-## [ ] Task 07 — Implement Immutable Sorting
+## [x] Task 07 — Implement Immutable Sorting
 
 Actions:
 - Add sortBy state with default 'iq-desc'.
@@ -187,7 +187,7 @@ feat(ex2): add immutable IQ and age sorting
 
 ---
 
-## [ ] Task 08 — Implement Delete and Focus Recovery
+## [x] Task 08 — Implement Delete and Focus Recovery
 
 Actions:
 - Add a delete button for each person.
