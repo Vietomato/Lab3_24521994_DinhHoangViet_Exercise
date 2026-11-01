@@ -19,6 +19,9 @@ function PubgMatchTelemetry({ squadId }) {
       ? globalThis.__PUBG_TELEMETRY_FAILURE_RATE__
       : undefined
     const requestOptions = { signal: controller.signal }
+    const delayMsOverride = import.meta.env.DEV
+      ? globalThis.__PUBG_TELEMETRY_DELAY_MS__
+      : undefined
 
     if (
       Number.isFinite(failureRateOverride) &&
@@ -26,6 +29,10 @@ function PubgMatchTelemetry({ squadId }) {
       failureRateOverride <= 1
     ) {
       requestOptions.failureRate = failureRateOverride
+    }
+
+    if (Number.isFinite(delayMsOverride) && delayMsOverride >= 0) {
+      requestOptions.delayMs = delayMsOverride
     }
 
     fetchKraftonPubgTelemetry(squadId, requestOptions)

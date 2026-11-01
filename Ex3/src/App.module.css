@@ -47,6 +47,23 @@
   color: var(--color-heading);
 }
 
+.widgetToggle {
+  min-height: 2.75rem;
+  margin-top: 1.25rem;
+  padding: 0.6rem 1rem;
+  color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-control);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.widgetToggle:hover {
+  color: var(--color-accent-hover);
+  background: var(--color-surface-subtle);
+}
+
 @media (max-width: 375px) {
   .app {
     width: calc(100% - 2rem);

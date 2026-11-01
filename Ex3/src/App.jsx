@@ -5,6 +5,7 @@ import styles from './App.module.css'
 
 function App() {
   const [squadId, setSquadId] = useState('ces')
+  const [isTelemetryVisible, setIsTelemetryVisible] = useState(true)
   const squadSelectId = useId()
   const selectedSquad = PUBG_VN_SQUADS.find((squad) => squad.id === squadId)
 
@@ -28,7 +29,15 @@ function App() {
       <p className={styles.selectedSquad}>
         Selected squad: <strong>{selectedSquad.name}</strong>
       </p>
-      <PubgMatchTelemetry squadId={squadId} />
+      <button
+        className={styles.widgetToggle}
+        type="button"
+        aria-expanded={isTelemetryVisible}
+        onClick={() => setIsTelemetryVisible((visible) => !visible)}
+      >
+        {isTelemetryVisible ? 'Hide telemetry widget' : 'Show telemetry widget'}
+      </button>
+      {isTelemetryVisible && <PubgMatchTelemetry squadId={squadId} />}
     </main>
   )
 }
