@@ -1,30 +1,54 @@
 import { PUBG_VN_SQUADS } from '../data/pubgSquads.js'
 
+function createAbortError() {
+  return new DOMException('The telemetry request was aborted.', 'AbortError')
+}
+
 /**
- * `signal` is reserved for Task 05 and is not handled yet.
  * @param {string} squadId
  * @param {{ delayMs?: number, failureRate?: number, signal?: AbortSignal }} [options]
  * @returns {Promise<{ id: string, name: string, map: string, phase: string, alive: number, kills: number, wwcdProb: string, status: string }>}
  */
 export function fetchKraftonPubgTelemetry(
   squadId,
-  { delayMs = 1000, failureRate = 0.35 } = {},
+  { delayMs = 1000, failureRate = 0.35, signal } = {},
 ) {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
+    if (signal?.aborted) {
+      reject(createAbortError())
+      return
+    }
+
+    let timerId
+    const cleanup = () => {
+      if (timerId !== undefined) {
+        clearTimeout(timerId)
+      }
+      signal?.removeEventListener('abort', handleAbort)
+    }
+    const handleAbort = () => {
+      cleanup()
+      reject(createAbortError())
+    }
+    const finish = (callback, value) => {
+      cleanup()
+      callback(value)
+    }
+
+    signal?.addEventListener('abort', handleAbort, { once: true })
+    timerId = setTimeout(() => {
       const squad = PUBG_VN_SQUADS.find((entry) => entry.id === squadId)
 
       if (!squad) {
-        reject(new Error(`Unknown PUBG squad ID: ${squadId}`))
-        return
+        finish(reject, new Error(`Unknown PUBG squad ID: ${squadId}`))
+      } else if (Math.random() < failureRate) {
+        finish(
+          reject,
+          new Error(`Simulated telemetry failure for squad "${squadId}".`),
+        )
+      } else {
+        finish(resolve, { ...squad })
       }
-
-      if (Math.random() < failureRate) {
-        reject(new Error(`Simulated telemetry failure for squad "${squadId}".`))
-        return
-      }
-
-      resolve({ ...squad })
     }, delayMs)
   })
 }
