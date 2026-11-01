@@ -1,0 +1,72 @@
+.app {
+  width: min(100% - 2rem, 56rem);
+  margin: 0 auto 3rem;
+  padding: clamp(2rem, 7vw, 4.5rem) 0 0;
+  text-align: left;
+}
+
+.app h1 {
+  max-width: 16ch;
+  margin: 0 0 2rem;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: var(--color-heading);
+}
+
+.selector {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 24rem;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.selector select {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.65rem 0.8rem;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-control);
+  font: inherit;
+  font-weight: 400;
+}
+
+.selector select:hover {
+  border-color: var(--color-accent);
+}
+
+.selectedSquad {
+  margin-top: 1.25rem;
+  color: var(--color-text-muted);
+}
+
+.selectedSquad strong {
+  color: var(--color-heading);
+}
+
+.widgetToggle {
+  min-height: 2.75rem;
+  margin-top: 1.25rem;
+  padding: 0.6rem 1rem;
+  color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-control);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.widgetToggle:hover {
+  color: var(--color-accent-hover);
+  background: var(--color-surface-subtle);
+}
+
+@media (max-width: 375px) {
+  .app {
+    width: calc(100% - 2rem);
+    padding-top: 2rem;
+  }
+}
