@@ -63,7 +63,10 @@ function ScientistDirectory({ initialData = SMART_PEOPLE }) {
       <h2 className={styles.sectionHeading} id="scientists-heading">
         Scientists
       </h2>
-      <div className={styles.controls}>
+      <form
+        className={styles.controls}
+        onSubmit={(event) => event.preventDefault()}
+      >
         <div className={styles.field}>
           <label htmlFor={searchId}>Search by name</label>
           <input
@@ -105,7 +108,7 @@ function ScientistDirectory({ initialData = SMART_PEOPLE }) {
         >
           Reset
         </button>
-      </div>
+      </form>
       <output className={styles.resultCount} role="status" aria-live="polite">
         {visiblePeople.length}{' '}
         {visiblePeople.length === 1 ? 'result' : 'results'}
