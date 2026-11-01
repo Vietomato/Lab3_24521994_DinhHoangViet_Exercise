@@ -282,7 +282,7 @@ test(ex2): document functional and accessibility checks
 
 ---
 
-## [ ] Task 12 — Complete the AI Failure Audit
+## [x] Task 12 — Complete the AI Failure Audit
 
 Actions:
 - Review actual AI output and verification findings.
