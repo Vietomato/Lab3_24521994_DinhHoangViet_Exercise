@@ -12,7 +12,7 @@ Do not mark pending browser checks as passed.
 | [x] 04 | Async mock service | Correct data, delay and configurable failure | feat(ex3): add simulated telemetry service |
 | [x] 05 | Abort support | Timer/listener cleanup and AbortError verified | feat(ex3): support abortable telemetry requests |
 | [x] 06 | Squad selector | App controls labeled squad selector | feat(ex3): add accessible squad selector |
-| 07 | Fetch state machine | IDLE/LOADING/SUCCESS/ERROR with cleanup | feat(ex3): implement telemetry state machine |
+| [x] 07 | Fetch state machine | IDLE/LOADING/SUCCESS/ERROR with cleanup | feat(ex3): implement telemetry state machine |
 | 08 | Success view | Correct squad and semantic statistics | feat(ex3): render squad telemetry details |
 | 09 | Loading skeleton | Accessible reserved 220px card area | feat(ex3): add accessible loading skeleton |
 | 10 | Error and Retry | Inline error; retry restarts request | feat(ex3): add error recovery and retry |
