@@ -55,48 +55,75 @@ function PubgMatchTelemetry({ squadId }) {
   const isCurrentRequest =
     view.squadId === squadId && view.retryTick === retryTick
   const status = isCurrentRequest ? view.status : 'LOADING'
+  const isLoading = status === 'LOADING'
 
   return (
-    <section className={styles.telemetry} aria-labelledby="telemetry-heading">
+    <section
+      className={styles.telemetry}
+      aria-labelledby="telemetry-heading"
+      aria-busy={isLoading}
+    >
       <h2 id="telemetry-heading">Match telemetry</h2>
       <p>Status: {status}</p>
-      {status === 'SUCCESS' && isCurrentRequest && (
-        <article className={styles.match} aria-label={`${view.data.name} telemetry`}>
-          <h3>{view.data.name}</h3>
-          <dl className={styles.statistics}>
-            <div>
-              <dt>Map</dt>
-              <dd>{view.data.map}</dd>
+      <div className={styles.cardArea}>
+        {isLoading && (
+          <>
+            <p className={styles.visuallyHidden} role="status" aria-live="polite">
+              Loading telemetry for the selected squad.
+            </p>
+            <div className={styles.skeleton} aria-hidden="true">
+              <span className={styles.skeletonTitle} />
+              <div className={styles.skeletonStatistics}>
+                <span />
+                <span />
+                <span />
+                <span />
+              </div>
+              <span className={styles.skeletonFooter} />
             </div>
-            <div>
-              <dt>Phase</dt>
-              <dd>{view.data.phase}</dd>
-            </div>
-            <div>
-              <dt>Alive</dt>
-              <dd>{view.data.alive}</dd>
-            </div>
-            <div>
-              <dt>Kills</dt>
-              <dd>{view.data.kills}</dd>
-            </div>
-            <div>
-              <dt>WWCD probability</dt>
-              <dd>{view.data.wwcdProb}</dd>
-            </div>
-            <div>
-              <dt>Status</dt>
-              <dd>{view.data.status}</dd>
-            </div>
-          </dl>
-          <p className={styles.disclaimer}>
-            This is simulated assignment data, not live match telemetry.
-          </p>
-        </article>
-      )}
-      {status === 'ERROR' && isCurrentRequest && (
-        <p>Error: {view.error.message}</p>
-      )}
+          </>
+        )}
+        {status === 'SUCCESS' && isCurrentRequest && (
+          <article
+            className={styles.match}
+            aria-label={`${view.data.name} telemetry`}
+          >
+            <h3>{view.data.name}</h3>
+            <dl className={styles.statistics}>
+              <div>
+                <dt>Map</dt>
+                <dd>{view.data.map}</dd>
+              </div>
+              <div>
+                <dt>Phase</dt>
+                <dd>{view.data.phase}</dd>
+              </div>
+              <div>
+                <dt>Alive</dt>
+                <dd>{view.data.alive}</dd>
+              </div>
+              <div>
+                <dt>Kills</dt>
+                <dd>{view.data.kills}</dd>
+              </div>
+              <div>
+                <dt>WWCD probability</dt>
+                <dd>{view.data.wwcdProb}</dd>
+              </div>
+              <div>
+                <dt>Status</dt>
+                <dd>{view.data.status}</dd>
+              </div>
+            </dl>
+            <p className={styles.disclaimer}>
+              This is simulated assignment data, not live match telemetry.
+            </p>
+          </article>
+        )}
+        {status === 'ERROR' && isCurrentRequest && (
+          <p>Error: {view.error.message}</p>
+        )}
+      </div>
     </section>
   )
 }
