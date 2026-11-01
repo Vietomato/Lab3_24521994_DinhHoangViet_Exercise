@@ -1,0 +1,14 @@
+.telemetry {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+.telemetry h2 {
+  margin-top: 0;
+}
+
+.telemetry p + p {
+  margin-top: 0.5rem;
+}
